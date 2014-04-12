@@ -1,4 +1,4 @@
-package com.tpcstld.twozerogame;
+package fi.partio.pohjanmaa.partiopolku;
 
 public class Cell {
     private int x;

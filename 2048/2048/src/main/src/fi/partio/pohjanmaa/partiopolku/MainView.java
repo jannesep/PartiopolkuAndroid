@@ -1,4 +1,4 @@
-package com.tpcstld.twozerogame;
+package fi.partio.pohjanmaa.partiopolku;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -11,6 +11,8 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 
 import java.util.ArrayList;
+
+import com.tpcstld.twozerogame.R;
 
 public class MainView extends View {
 
@@ -210,8 +212,7 @@ public class MainView extends View {
         paint.setTextSize(headerTextSize);
         paint.setColor(TEXT_BLACK);
         paint.setTextAlign(Paint.Align.LEFT);
-        int textShiftY = centerText() * 2;
-        int headerStartY = sYAll - textShiftY;
+        int headerStartY = sYAll - 20;/* - textShiftY;*/
         canvas.drawText(headerText, startingX, headerStartY, paint);
     }
 
@@ -453,9 +454,9 @@ public class MainView extends View {
         cellTextSize = textSize * 0.9f;
         titleTextSize = textSize / 3;
         bodyTextSize = (int) (textSize / 1.5);
-        instructionsTextSize = (int) (textSize / 1.5);
-        headerTextSize = textSize * 2;
-        gameOverTextSize = textSize * 2;
+        instructionsTextSize = (int) (textSize - 5);
+        headerTextSize = (float) (textSize * 1.5);
+        gameOverTextSize = (float) (textSize * 1.7);
         textPaddingSize = (int) (textSize / 3);
         iconPaddingSize = (int) (textSize / 5);
 

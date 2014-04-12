@@ -1,4 +1,4 @@
-package com.tpcstld.twozerogame;
+package fi.partio.pohjanmaa.partiopolku;
 
 import android.content.Context;
 import android.content.SharedPreferences;
