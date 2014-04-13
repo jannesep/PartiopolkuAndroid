@@ -12,7 +12,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-import com.tpcstld.twozerogame.R;
+import fi.partio.pohjanmaa.partiopolku.R;
 
 public class MainView extends View {
 
@@ -75,7 +75,8 @@ public class MainView extends View {
     private String continueText;
     private String forNowText;
     private String endlessModeText;
-
+    private String scoutIndexText;
+    
     long lastFPSTime = System.nanoTime();
     long currentTime = System.nanoTime();
 
@@ -137,16 +138,6 @@ public class MainView extends View {
     private void drawDrawable(Canvas canvas, Drawable draw, int startingX, int startingY, int endingX, int endingY) {
         draw.setBounds(startingX, startingY, endingX, endingY);
         draw.draw(canvas);
-    }
-
-    private void drawCellText(Canvas canvas, int value, int sX, int sY) {
-        int textShiftY = centerText();
-        if (value >= 8) {
-            paint.setColor(TEXT_WHITE);
-        } else {
-            paint.setColor(TEXT_BLACK);
-        }
-        canvas.drawText("" + value, sX + cellSize / 2, sY + cellSize / 2 - textShiftY, paint);
     }
 
     private void drawScoreText(Canvas canvas) {
@@ -438,6 +429,32 @@ public class MainView extends View {
         if(n <= 0) throw new IllegalArgumentException();
         return 31 - Integer.numberOfLeadingZeros(n);
     }
+    
+    private String getScoutIndexString(int p) {
+    	String s = "";
+    	if (p >= 500) s   =  "Nokkapentu"                      ;
+    	if (p >= 1000) s  =  "Seikkailija"                     ;
+    	if (p >= 1500) s  =  "Seikkailijakonkari"              ;
+    	if (p >= 2000) s  =  "Tarpoja"                         ;
+    	if (p >= 2500) s  =  "Supertarpoja"                    ;
+    	if (p >= 3000) s  =  "Samoaja"                         ;
+    	if (p >= 4000) s  =  "Konkarisamoaja"                  ;
+    	if (p >= 5000) s  =  "Vaeltaja"                        ;
+    	if (p >= 6000) s  =  "Vaeltajavartion johtaja"         ;
+    	if (p >= 6500) s  =  "Aloitteleva aikuinen tuki"       ;
+    	if (p >= 7000) s  =  "Tukeva aikuinen"                 ;
+    	if (p >= 8000) s  =  "Partiojohtaja"                   ;
+    	if (p >= 8500) s  =  "Lintukansaa"                     ;
+    	if (p >= 9000) s  =  "Piirin luottis"                  ;
+    	if (p >= 9500) s  =  "SP:n luottis"                    ;
+    	if (p >= 11000) s =  "SP:n hallituksen jäsen"          ;
+    	if (p >= 12500) s =  "Partioneuvos"                    ;
+    	if (p >= 15000) s =  "Oikeassaolevien Neuvoston Jäsen" ;
+    	if (p >= 17500) s =  "Kymmenen nappulan jäärä"         ;
+    	if (p >= 20000) s =  "Gilwell Parkin johtaja"          ;
+    	if (p >= 25000) s =  "Baden-Powell"                    ;
+    	return s;
+    }
 
     private void getLayout(int width, int height) {
         cellSize = Math.min(width / (game.numSquaresX + 1), height / (game.numSquaresY + 3));
@@ -506,6 +523,7 @@ public class MainView extends View {
             instructionsText = resources.getString(R.string.instructions);
             winText = resources.getString(R.string.you_win);
             loseText = resources.getString(R.string.game_over);
+            scoutIndexText = resources.getString(R.string.scout_index);
             continueText = resources.getString(R.string.go_on);
             forNowText = resources.getString(R.string.for_now);
             endlessModeText = resources.getString(R.string.endless);

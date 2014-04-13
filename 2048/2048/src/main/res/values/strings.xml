@@ -6,7 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Asetukset</string>
     <string name="new_game">Uusi peli</string>
-
+	<string name="scout_index">Partioindeksisi on</string>
     <string name="high_score">HUIPUT</string>
     <string name="score">PISTEET</string>
     <string name="instructions">Saatko Suuren Ansioristin?</string>
